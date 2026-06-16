@@ -214,34 +214,113 @@ if (label == "Dessert") {
   }
 }
 
-      // 1. Create variables to hold our custom details
-        String customDescription = "";
-        String customTime = "Added yesterday";
+      String customDescription = "";
+String customTime = "Added yesterday";
 
-        // 2. Set different details based on the Tab Label
-        if (label == "Food") {
-          customDescription = "A freshly prepared, hot savory dish made with premium local ingredients. Served with your choice of side condiments.";
-          customTime = "Added yesterday · 12:45 PM";
-        } else if (label == "Drinks") {
-          customDescription = "An ice-cold, refreshing beverage perfectly sweetened to quench your thirst. Made fresh at the UniKL Bistro bar station.";
-          customTime = "Added 2 hours ago";
-        } else if (label == "Dessert") {
-          customDescription = "A sweet, decadent pastry treats baked fresh this morning. The perfect finish to your UniKL Bistro dining experience.";
-          customTime = "Added yesterday · 9:15 AM";
-        }
+if (itemName == "Nasi Lemak") {
+  customDescription =
+      "Traditional Malaysian coconut rice served with sambal, fried chicken, egg, peanuts and cucumber.";
+  customTime = "Added yesterday · 12:45 PM";
+}
 
+else if (itemName == "Burger Special") {
+  customDescription =
+      "Juicy beef burger layered with fresh lettuce, tomatoes, cheese and our signature sauce.";
+  customTime = "Added today · 10:15 AM";
+}
+
+else if (itemName == "Laksa Utara") {
+  customDescription =
+      "Authentic northern-style laksa served with rich fish broth and fresh vegetables.";
+  customTime = "Added today · 9:30 AM";
+}
+
+else if (itemName == "Mee Kari") {
+  customDescription =
+      "Spicy and creamy curry noodles topped with chicken, tofu puffs and fresh herbs.";
+}
+
+else if (itemName == "Mee Hoon Sup") {
+  customDescription =
+      "Light and comforting rice vermicelli soup served with tender chicken slices.";
+}
+
+else if (itemName == "Chicken Chop") {
+  customDescription =
+      "Crispy chicken chop served with fries, salad and black pepper sauce.";
+}
+
+else if (itemName == "Teh Ais") {
+  customDescription =
+      "Refreshing iced milk tea prepared fresh and served chilled.";
+}
+
+else if (itemName == "Milo Ais") {
+  customDescription =
+      "Classic Malaysian chocolate malt drink served over ice.";
+}
+
+else if (itemName == "Nescafe Ais") {
+  customDescription =
+      "Smooth iced coffee made with premium Nescafe blend.";
+}
+
+else if (itemName == "Sirap Bandung") {
+  customDescription =
+      "Sweet rose syrup drink mixed with milk and served cold.";
+}
+
+else if (itemName == "Orange Juice") {
+  customDescription =
+      "Fresh orange juice packed with natural vitamins and refreshing flavour.";
+}
+
+else if (itemName == "Mineral Water") {
+  customDescription =
+      "Pure bottled drinking water for a healthy and refreshing choice.";
+}
+
+else if (itemName == "Chocolate Cake") {
+  customDescription =
+      "Rich and moist chocolate cake topped with smooth chocolate frosting.";
+}
+
+else if (itemName == "Cheesecake") {
+  customDescription =
+      "Creamy cheesecake with a buttery biscuit base and smooth texture.";
+}
+
+else if (itemName == "Brownies") {
+  customDescription =
+      "Soft and fudgy chocolate brownies baked fresh daily.";
+}
+
+else if (itemName == "Pudding") {
+  customDescription =
+      "Smooth caramel pudding with a rich and sweet flavour.";
+}
+
+else if (itemName == "Donut") {
+  customDescription =
+      "Freshly baked donut topped with colourful sprinkles and sweet glaze.";
+}
+
+else if (itemName == "Ice Cream") {
+  customDescription =
+      "Creamy vanilla ice cream served as a refreshing dessert.";
+}
        return InkWell(
   onTap: () {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => PhotoDetailPage(
-          title: itemName,
-          icon: icon,
-          description: customDescription,
-          timeAdded: customTime,
-          price: getPrice(itemName),
-        ),
+       builder: (context) => PhotoDetailPage(
+           title: itemName,
+           imagePath: imagePath,
+           description: customDescription,
+           timeAdded: customTime,
+            price: getPrice(itemName),
+),
       ),
     );
   },
@@ -293,15 +372,15 @@ if (label == "Dessert") {
 // --- FULL SCREEN FOOD DETAIL PAGE & DESCRIPTION INFO ---
 class PhotoDetailPage extends StatelessWidget {
   final String title;
-  final IconData icon;
+  final String imagePath;
   final String description;
   final String timeAdded;
   final double price;
 
-  const PhotoDetailPage({
+ const PhotoDetailPage({
   super.key,
   required this.title,
-  required this.icon,
+  required this.imagePath,
   required this.description,
   required this.timeAdded,
   required this.price,
@@ -331,11 +410,11 @@ class PhotoDetailPage extends StatelessWidget {
                 boundaryMargin: const EdgeInsets.all(20),
                 minScale: 0.5,
                 maxScale: 4.0,
-                child: Icon(
-                  icon,
-                  size: 220,
-                  color: Colors.cyan,
-                ),
+                child: Image.asset(
+                    imagePath,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+               ),
               ),
             ),
           ),
