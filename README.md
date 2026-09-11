@@ -1,94 +1,206 @@
-# Mobile Food Ordering Application
+# 🍔 Mobile Food Ordering Application
 
-A simple mobile food ordering application developed using **Flutter** and **Dart**. The application allows users to create an account, log in, browse available food items, add items to their cart, and complete a simulated payment.
+A mobile food ordering application developed using **Flutter** and **Dart**. The application allows users to create an account, log in, browse food, drinks and desserts, add items to a shopping cart, and complete a simulated payment.
 
-This project was developed as a mobile application project to demonstrate Flutter UI development, navigation, and local database integration using SQLite.
+The project demonstrates mobile application development using Flutter, including user interface design, navigation, local database storage and cart management.
 
-## Features
+---
+
+## 📱 Features
 
 - User registration
 - User login
 - Continue as guest
-- Browse food, drinks, and dessert
+- Browse menu by category
+  - Food
+  - Drinks
+  - Dessert
+- View item details
+- View item prices
 - Add items to cart
-- View items in cart
+- View cart items
 - Remove items from cart
 - Calculate total order price
-- Clear cart
-- Demo payment
+- Clear cart after payment
+- Simulated payment
 - Local data storage using SQLite
 
-## Technologies Used
+---
 
-- **Flutter**
-- **Dart**
-- **SQLite (sqflite)**
-- **Path**
-- **Material Design**
+## 🛠️ Technologies Used
 
-## Project Structure
+| Technology | Purpose |
+|---|---|
+| Flutter | Mobile application framework |
+| Dart | Programming language |
+| SQLite | Local database |
+| sqflite | Flutter SQLite package |
+| path | Database path management |
+| Material Design | User interface components |
+
+---
+
+## 📂 Project Structure
 
 ```text
-lib/
-├── main.dart
-├── login_page.dart
-├── signup_page.dart
-├── home.dart
-├── cart.dart
-├── database_helper.dart
-├── profile.dart
-└── view_data_page.dart
-
-assets/
-└── images/
+MOBILE-food-ordering-application/
+│
+├── android/
+├── assets/
+│   └── images/
+│
+├── ios/
+├── lib/
+│   ├── main.dart
+│   ├── home.dart
+│   ├── cart.dart
+│   ├── database_helper.dart
+│   ├── login_page.dart
+│   ├── signup_page.dart
+│   ├── profile.dart
+│   └── view_data_page.dart
+│
+├── web/
+├── windows/
+├── pubspec.yaml
+└── README.md
 ```
 
-### Main Files
+---
+
+## 🧩 Main Components
 
 | File | Description |
 |---|---|
-| `main.dart` | Main entry point of the application |
+| `main.dart` | Main entry point and navigation of the application |
+| `home.dart` | Displays Food, Drinks and Dessert menus |
+| `cart.dart` | Displays cart items, total price and payment function |
+| `database_helper.dart` | Handles SQLite database operations |
 | `login_page.dart` | Handles user login and guest access |
 | `signup_page.dart` | Handles new user registration |
-| `home.dart` | Displays the main food ordering interface |
-| `cart.dart` | Displays cart items and handles the demo payment |
-| `database_helper.dart` | Handles SQLite database operations |
 | `profile.dart` | Displays the user profile interface |
 | `view_data_page.dart` | Displays stored application data |
 
-## Application Flow
+---
+
+## 🍽️ Menu Categories
+
+The menu is divided into three categories.
+
+### Food
+
+- Burger Special
+- Laksa Utara
+- Mee Kari
+- Mee Hoon Sup
+- Nasi Lemak
+- Chicken Chop
+
+### Drinks
+
+- Teh Ais
+- Milo Ais
+- Nescafe Ais
+- Sirap Bandung
+- Orange Juice
+- Mineral Water
+
+### Dessert
+
+- Chocolate Cake
+- Cheesecake
+- Brownies
+- Pudding
+- Donut
+- Ice Cream
+
+---
+
+## 🔄 Application Flow
 
 ```text
 Launch Application
-        ↓
+        │
+        ▼
 Login / Sign Up
-        ↓
-Home Page
-        ↓
-Browse Menu
-        ↓
-Add Item to Cart
-        ↓
-View Cart
-        ↓
-Calculate Total
-        ↓
-Demo Payment
-        ↓
-Payment Successful
+        │
+        ├── Continue as Guest
+        │
+        ▼
+     Home Page
+        │
+        ▼
+Browse Food / Drinks / Dessert
+        │
+        ▼
+View Item Details
+        │
+        ▼
+   Add To Cart
+        │
+        ▼
+     View Cart
+        │
+        ▼
+Calculate Total Price
+        │
+        ▼
+    Demo Payment
+        │
+        ▼
+ Payment Successful
 ```
 
-## Local Database
+---
+
+## 🗄️ Local Database
 
 The application uses **SQLite** through the `sqflite` package for local data storage.
 
-The database is used to manage:
+The database is used to manage information such as:
 
-- User account information
+- User accounts
 - Cart items
-- Item quantity and price
+- Food names
+- Item prices
+- Item quantities
 
-## Installation
+Using a local database allows the application to store and retrieve data directly on the device without requiring an external database server.
+
+---
+
+## 🛒 Cart System
+
+When a user selects an item, the item can be added to the shopping cart.
+
+Each cart record contains:
+
+```text
+Food Name
+Price
+Quantity
+```
+
+Users can view their selected items, remove unwanted items and see the total price of the current order.
+
+---
+
+## 💳 Payment
+
+The payment feature is implemented for **demonstration purposes only**.
+
+No real payment gateway, bank account or financial transaction is involved.
+
+When the user presses the **Payment** button:
+
+1. The demo payment is processed.
+2. The cart is cleared.
+3. The total price is reset.
+4. A `Payment Successful (Demo)` message is displayed.
+
+---
+
+## ▶️ How to Run the Project
 
 ### 1. Clone the repository
 
@@ -96,13 +208,13 @@ The database is used to manage:
 git clone https://github.com/gudamzy/MOBILE-food-ordering-application.git
 ```
 
-### 2. Open the project directory
+### 2. Enter the project directory
 
 ```bash
 cd MOBILE-food-ordering-application
 ```
 
-### 3. Install dependencies
+### 3. Install Flutter dependencies
 
 ```bash
 flutter pub get
@@ -114,22 +226,57 @@ flutter pub get
 flutter run
 ```
 
-Make sure Flutter is installed and an Android emulator or physical device is available before running the application.
+Make sure **Flutter SDK** is installed and an Android emulator or physical device is available.
 
-## Payment
+---
 
-The payment function in this application is for **demonstration purposes only**. No real payment gateway or financial transaction is involved.
+## 📦 Main Dependencies
 
-After a successful demo payment, the cart is cleared and a payment success message is displayed.
+The project uses Flutter packages including:
 
-## Purpose
+```yaml
+sqflite
+path
+```
 
-The purpose of this project is to demonstrate the development of a basic food ordering mobile application using Flutter. It focuses on user authentication, menu navigation, cart management, local database storage, and a simulated checkout process.
+Run the following command to install all dependencies defined in `pubspec.yaml`:
 
-## Author
+```bash
+flutter pub get
+```
 
-Developed as a student mobile application project.
+---
 
-## License
+## 🎯 Project Purpose
 
-This project is intended for educational purposes.
+The purpose of this project is to demonstrate the development of a basic mobile food ordering application using Flutter.
+
+The project focuses on:
+
+- Flutter user interface development
+- Page navigation
+- User registration and login
+- Local database integration
+- Menu presentation
+- Shopping cart management
+- Basic checkout simulation
+
+---
+
+## ⚠️ Limitations
+
+This application is developed as an educational project.
+
+Current limitations include:
+
+- Payment is simulated and does not use a real payment gateway.
+- Data is stored locally on the device.
+- The application does not connect to a restaurant backend server.
+- Orders are not sent to an actual restaurant.
+- Real-time order tracking is not implemented.
+
+---
+
+## 📄 License
+
+This project is developed for educational purposes.
